@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>แนะนำตัว - คามิซามะ</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            background: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1e90ff;
-        }
-        p {
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>My Desktop Web</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('your-desktop-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    .icon {
+      position: absolute;
+      width: 80px;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .icon img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* โฟลเดอร์ */
+    #folder1 { top: 50px; left: 30px; }
+    #folder2 { top: 150px; left: 30px; }
+    #folder3 { top: 250px; left: 30px; }
+
+    /* จำลอง taskbar ด้านล่าง */
+    .taskbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 10px;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>สวัสดีครับ ผมชื่อคามิซามะ</h1>
-        <p>ผมเป็นนักพัฒนาเว็บไซต์ที่มีความสนใจด้านเทคโนโลยี และการสร้างสรรค์ประสบการณ์ออนไลน์</p>
-        <p>ถนัดภาษา HTML, CSS, JavaScript และ PHP</p>
-        <p>ยินดีที่ได้รู้จักทุกคนครับ 😊</p>
-    </div>
+
+  <a href="info-general.html" class="icon" id="folder1">
+    <img src="folder-icon.png" alt="ข้อมูลทั่วไป">
+    <div>ข้อมูลทั่วไป</div>
+  </a>
+
+  <a href="education.html" class="icon" id="folder2">
+    <img src="folder-icon.png" alt="ประวัติการศึกษา">
+    <div>ประวัติการศึกษา</div>
+  </a>
+
+  <a href="portfolio.html" class="icon" id="folder3">
+    <img src="folder-icon.png" alt="ผลงาน">
+    <div>ผลงาน</div>
+  </a>
+
+  <div class="taskbar" id="clockDisplay">
+    วันที่ 2 กุมภาพันธ์ 2558 - 14:59 น.
+  </div>
+
 </body>
 </html>
