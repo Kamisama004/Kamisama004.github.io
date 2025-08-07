@@ -44,43 +44,49 @@
         /* Character floating background */
         .character-float {
             position: fixed;
-            width: 80px;
-            height: 80px;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.cls-1{fill:%23a8e6cf;}.cls-2{fill:%23ffffff;}.cls-3{fill:%237fcdcd;}.cls-4{fill:%23ff9aa2;}</style></defs><circle class="cls-1" cx="100" cy="120" r="60"/><circle class="cls-2" cx="100" cy="100" r="50"/><circle class="cls-1" cx="100" cy="80" r="40"/><circle class="cls-2" cx="85" cy="75" r="5"/><circle class="cls-2" cx="115" cy="75" r="5"/><circle class="cls-3" cx="85" cy="75" r="3"/><circle class="cls-3" cx="115" cy="75" r="3"/><ellipse class="cls-4" cx="100" cy="85" rx="8" ry="4"/><path class="cls-1" d="M70,60 Q70,40 85,45 Q100,30 115,45 Q130,40 130,60 Q130,80 100,85 Q70,80 70,60"/><rect class="cls-2" x="85" y="50" width="30" height="15" rx="7"/><circle class="cls-3" cx="92" cy="57" r="2"/><circle class="cls-3" cx="108" cy="57" r="2"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.4;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .character-1 {
-            top: 10%;
-            left: 5%;
+            top: 15%;
+            left: 8%;
             animation: characterFloat1 12s linear infinite;
         }
 
         .character-2 {
-            top: 30%;
-            right: 5%;
+            top: 25%;
+            right: 10%;
             animation: characterFloat2 15s linear infinite;
         }
 
         .character-3 {
             top: 60%;
-            left: 10%;
+            left: 15%;
             animation: characterFloat3 18s linear infinite;
         }
 
         .character-4 {
-            top: 80%;
-            right: 15%;
+            top: 75%;
+            right: 20%;
             animation: characterFloat4 14s linear infinite;
         }
 
         .character-5 {
-            top: 20%;
-            left: 50%;
+            top: 35%;
+            left: 45%;
             animation: characterFloat5 16s linear infinite;
         }
 
@@ -133,9 +139,9 @@
             text-align: center;
             margin-bottom: 40px;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 25px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             animation: slideDown 1s ease-out;
@@ -184,7 +190,7 @@
         /* Content Grid */
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-bottom: 30px;
         }
@@ -229,12 +235,23 @@
             text-align: center;
         }
 
-        /* Portfolio section */
+        /* Portfolio section - Full width */
+        .portfolio-card {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
 
         .portfolio-item {
@@ -247,38 +264,41 @@
         }
 
         .portfolio-item:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(1.02);
-            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.03) translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .portfolio-title {
             font-weight: 600;
             color: #2c5f66;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
         .portfolio-desc {
             font-size: 0.9rem;
             color: #4a6969;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            line-height: 1.4;
         }
 
         .portfolio-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 6px;
             justify-content: center;
         }
 
         .tech-tag {
             background: linear-gradient(45deg, #ff9aa2, #ffd3a5);
             color: white;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Skills section */
@@ -298,6 +318,7 @@
             font-weight: 500;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .skill-tag:hover {
@@ -309,7 +330,7 @@
         .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .contact-link {
@@ -337,9 +358,9 @@
         .footer {
             text-align: center;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 25px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             color: #4a6969;
             animation: fadeIn 2s ease-out;
@@ -371,20 +392,30 @@
         /* Responsive */
         @media (max-width: 768px) {
             .name { font-size: 2rem; }
-            .content-grid { grid-template-columns: 1fr; }
+            .content-grid { 
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
             .profile-pic { width: 120px; height: 120px; font-size: 50px; }
             .portfolio-grid { grid-template-columns: 1fr; }
-            .character-float { width: 60px; height: 60px; }
+            .character-float { width: 45px; height: 45px; font-size: 18px; }
+            .container { padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .name { font-size: 1.8rem; }
+            .card, .portfolio-card { padding: 20px; }
+            .header { padding: 25px; }
         }
     </style>
 </head>
 <body>
     <!-- Character floating backgrounds -->
-    <div class="character-float character-1"></div>
-    <div class="character-float character-2"></div>
-    <div class="character-float character-3"></div>
-    <div class="character-float character-4"></div>
-    <div class="character-float character-5"></div>
+    <div class="character-float character-1">🌸</div>
+    <div class="character-float character-2">💫</div>
+    <div class="character-float character-3">🎀</div>
+    <div class="character-float character-4">🌟</div>
+    <div class="character-float character-5">💎</div>
 
     <!-- Floating decorations -->
     <div class="decoration" style="left: 10%; animation-delay: 0s;">✧</div>
@@ -419,76 +450,6 @@
                 </div>
             </div>
 
-            <!-- Portfolio -->
-            <div class="card" style="grid-column: 1 / -1;">
-                <h2 class="card-title">
-                    <span>🌟</span> ผลงาน Portfolio <span>🌟</span>
-                </h2>
-                <div class="card-content">
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🎨 Kawaii E-commerce</div>
-                            <div class="portfolio-desc">เว็บไซต์ขายของน่ารักสไตล์ญี่ปุ่น พร้อมระบบจัดการสินค้าครบครัน</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">CSS3</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">💫 Personal Blog</div>
-                            <div class="portfolio-desc">บล็อกส่วนตัวธีม Aesthetic พร้อมระบบ CMS และ Comment</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">Custom Theme</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🌸 Portfolio Gallery</div>
-                            <div class="portfolio-desc">แกลเลอรี่แสดงผลงานการออกแบบแบบ Interactive</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">CSS Grid</span>
-                                <span class="tech-tag">Anime.js</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🧸 Cute Task Manager</div>
-                            <div class="portfolio-desc">แอปจัดการงานสไตล์ kawaii พร้อม Notification น่ารัก</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Local Storage</span>
-                                <span class="tech-tag">PWA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🎪 Event Landing Page</div>
-                            <div class="portfolio-desc">หน้าเว็บงานอีเว้นต์แบบ One Page พร้อม Animation สวยงาม</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">GSAP</span>
-                                <span class="tech-tag">Responsive</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🍡 Restaurant Website</div>
-                            <div class="portfolio-desc">เว็บไซต์ร้านอาหารญี่ปุ่น พร้อมระบบจองโต๊ะและเมนูออนไลน์</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">Laravel</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Payment API</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Skills -->
             <div class="card">
                 <h2 class="card-title">
@@ -497,9 +458,9 @@
                 <div class="card-content">
                     <div class="skill-list">
                         <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">MySQL</span>
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Vue.js</span>
@@ -545,6 +506,77 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Portfolio - Full Width -->
+            <div class="portfolio-card">
+                <h2 class="card-title">
+                    <span>🌟</span> ผลงาน Portfolio <span>🌟</span>
+                </h2>
+                <div class="card-content">
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">🎨 Kawaii E-commerce</div>
+                            <div class="portfolio-desc">เว็บไซต์ขายของน่ารักสไตล์ญี่ปุ่น พร้อมระบบจัดการสินค้าครบครัน</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">💫 Personal Blog</div>
+                            <div class="portfolio-desc">บล็อกส่วนตัวธีม Aesthetic พร้อมระบบ CMS และ Comment</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">WordPress</span>
+                                <span class="tech-tag">Custom Theme</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">🌸 Portfolio Gallery</div>
+                            <div class="portfolio-desc">แกลเลอรี่แสดงผลงานการออกแบบแบบ Interactive</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">CSS Grid</span>
+                                <span class="tech-tag">Framer Motion</span>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">🧸 Task Manager</div>
+                            <div class="portfolio-desc">แอปจัดการงานสไตล์ kawaii พร้อม Notification น่ารัก</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Vuex</span>
+                                <span class="tech-tag">PWA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">🎪 Event Landing</div>
+                            <div class="portfolio-desc">หน้าเว็บงานอีเว้นต์แบบ One Page พร้อม Animation สวยงาม</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">GSAP</span>
+                                <span class="tech-tag">Responsive</span>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-title">🍡 Restaurant Site</div>
+                            <div class="portfolio-desc">เว็บไซต์ร้านอาหารญี่ปุ่น พร้อมระบบจองโต๊ะและเมนูออนไลน์</div>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Payment API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -557,10 +589,9 @@
     </div>
 
     <script>
-        // Add some interactive effects
         document.addEventListener('DOMContentLoaded', function() {
             // Stagger card animations
-            const cards = document.querySelectorAll('.card');
+            const cards = document.querySelectorAll('.card, .portfolio-card');
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.2}s`;
             });
@@ -579,18 +610,18 @@
                 });
             });
 
-            // Add hover effect to portfolio items
+            // Portfolio items hover effects
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             portfolioItems.forEach(item => {
                 item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.02) translateY(-5px)';
+                    this.style.transform = 'scale(1.03) translateY(-5px)';
                 });
                 item.addEventListener('mouseleave', function() {
                     this.style.transform = 'scale(1) translateY(0)';
                 });
             });
 
-            // Add parallax effect to decorations
+            // Parallax effect for characters and decorations
             document.addEventListener('mousemove', function(e) {
                 const decorations = document.querySelectorAll('.decoration');
                 const characters = document.querySelectorAll('.character-float');
@@ -599,27 +630,36 @@
                 
                 decorations.forEach((decoration, index) => {
                     const speed = (index % 3 + 1) * 0.5;
-                    decoration.style.transform += ` translate(${x * speed}px, ${y * speed}px)`;
+                    const transform = decoration.style.transform.split(' translate')[0];
+                    decoration.style.transform = `${transform} translate(${x * speed}px, ${y * speed}px)`;
                 });
 
                 characters.forEach((character, index) => {
                     const speed = (index % 2 + 1) * 0.3;
-                    character.style.transform += ` translate(${x * speed * 2}px, ${y * speed * 2}px)`;
+                    const currentTransform = character.style.transform.split(' translate')[0];
+                    character.style.transform = `${currentTransform} translate(${x * speed * 2}px, ${y * speed * 2}px)`;
                 });
             });
 
-            // Random character spawn animation
+            // Random character highlight effect
             setInterval(() => {
                 const characters = document.querySelectorAll('.character-float');
                 const randomChar = characters[Math.floor(Math.random() * characters.length)];
-                randomChar.style.opacity = '0.6';
-                randomChar.style.transform += ' scale(1.2)';
+                
+                const originalOpacity = randomChar.style.opacity;
+                const originalTransform = randomChar.style.transform;
+                
+                randomChar.style.opacity = '0.8';
+                randomChar.style.transform += ' scale(1.3)';
                 
                 setTimeout(() => {
-                    randomChar.style.opacity = '0.3';
-                    randomChar.style.transform = randomChar.style.transform.replace(' scale(1.2)', '');
-                }, 800);
+                    randomChar.style.opacity = originalOpacity || '0.4';
+                    randomChar.style.transform = originalTransform;
+                }, 1000);
             }, 3000);
+
+            // Smooth scroll for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
         });
     </script>
 </body>
