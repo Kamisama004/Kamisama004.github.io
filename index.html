@@ -1,74 +1,382 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>My Desktop Web</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('your-desktop-image.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✧ My Kawaii Profile ✧</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .icon {
-      position: absolute;
-      width: 80px;
-      text-align: center;
-      color: white;
-      font-size: 14px;
-    }
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf, #7fcdcd, #95d5b2);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-    .icon img {
-      width: 48px;
-      height: 48px;
-      display: block;
-      margin: 0 auto;
-    }
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 219, 226, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(162, 210, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
 
-    /* โฟลเดอร์ */
-    #folder1 { top: 50px; left: 30px; }
-    #folder2 { top: 150px; left: 30px; }
-    #folder3 { top: 250px; left: 30px; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
-    /* จำลอง taskbar ด้านล่าง */
-    .taskbar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 40px;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0 10px;
-      color: white;
-      font-size: 14px;
-    }
-  </style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff9a9e, #a8e6cf, #7fcdcd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c5f66;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #4a9196;
+            margin-bottom: 20px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c5f66;
+            margin-bottom: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            color: #4a6969;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Skills section */
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #7fcdcd, #a8e6cf);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Contact section */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            text-decoration: none;
+            color: #2c5f66;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #4a6969;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Floating decorations */
+        .decoration {
+            position: fixed;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            z-index: -1;
+            animation: floatAround 8s linear infinite;
+        }
+
+        @keyframes floatAround {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .decoration:nth-child(odd) { animation-duration: 10s; }
+        .decoration:nth-child(even) { animation-duration: 12s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name { font-size: 2rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .profile-pic { width: 120px; height: 120px; font-size: 50px; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Floating decorations -->
+    <div class="decoration" style="left: 10%; animation-delay: 0s;">✧</div>
+    <div class="decoration" style="left: 20%; animation-delay: 1s;">♡</div>
+    <div class="decoration" style="left: 30%; animation-delay: 2s;">✦</div>
+    <div class="decoration" style="left: 40%; animation-delay: 3s;">◇</div>
+    <div class="decoration" style="left: 50%; animation-delay: 4s;">✧</div>
+    <div class="decoration" style="left: 60%; animation-delay: 5s;">♡</div>
+    <div class="decoration" style="left: 70%; animation-delay: 6s;">✦</div>
+    <div class="decoration" style="left: 80%; animation-delay: 7s;">◇</div>
+    <div class="decoration" style="left: 90%; animation-delay: 8s;">✧</div>
 
-  <a href="info-general.html" class="icon" id="folder1">
-    <img src="folder-icon.png" alt="ข้อมูลทั่วไป">
-    <div>ข้อมูลทั่วไป</div>
-  </a>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-pic">👤</div>
+            <h1 class="name">ชื่อของคุณ</h1>
+            <p class="title">✧ Web Developer & Designer ✧</p>
+        </div>
 
-  <a href="education.html" class="icon" id="folder2">
-    <img src="folder-icon.png" alt="ประวัติการศึกษา">
-    <div>ประวัติการศึกษา</div>
-  </a>
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- About Me -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>✦</span> เกี่ยวกับฉัน <span>✦</span>
+                </h2>
+                <div class="card-content">
+                    <p>สวัสดีค่ะ! ฉันเป็นคนที่หลงใหลในการสร้างสรรค์เว็บไซต์และการออกแบบ ชอบสีฟ้าใสๆ และธีม kawaii 💙</p>
+                    <br>
+                    <p>มีความสนใจในเทคโนโลยีใหม่ๆ และชอบเรียนรู้สิ่งใหม่อยู่เสมอ</p>
+                </div>
+            </div>
 
-  <a href="portfolio.html" class="icon" id="folder3">
-    <img src="folder-icon.png" alt="ผลงาน">
-    <div>ผลงาน</div>
-  </a>
+            <!-- Skills -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>✧</span> ทักษะ <span>✧</span>
+                </h2>
+                <div class="card-content">
+                    <div class="skill-list">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
 
-  <div class="taskbar" id="clockDisplay">
-    วันที่ 2 กุมภาพันธ์ 2558 - 14:59 น.
-  </div>
+            <!-- Hobbies -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>♡</span> งานอดิเรก <span>♡</span>
+                </h2>
+                <div class="card-content">
+                    <p>✦ ชอบดู Anime และอ่าน Manga</p>
+                    <p>✦ ชอบฟัง Lo-fi และ City Pop</p>
+                    <p>✦ ชอบถ่ายรูป Aesthetic</p>
+                    <p>✦ ชอบเก็บของสะสม Kawaii</p>
+                    <p>✦ ชอบเขียนโค้ดเว็บไซต์สวยๆ</p>
+                </div>
+            </div>
 
+            <!-- Contact -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>◇</span> ติดต่อฉัน <span>◇</span>
+                </h2>
+                <div class="card-content">
+                    <div class="contact-links">
+                        <a href="mailto:your-email@example.com" class="contact-link">
+                            <span>📧</span> your-email@example.com
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>💬</span> Line: @yourid
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>📱</span> Instagram: @yourusername
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span>🐙</span> GitHub: yourusername
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>✧ ขอบคุณที่แวะมาดูเว็บไซต์ของฉันนะคะ ✧</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                Made with ♡ and lots of kawaii vibes
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stagger card animations
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Add click effect to skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+
+            // Add parallax effect to decorations
+            document.addEventListener('mousemove', function(e) {
+                const decorations = document.querySelectorAll('.decoration');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                decorations.forEach((decoration, index) => {
+                    const speed = (index % 3 + 1) * 0.5;
+                    decoration.style.transform += ` translate(${x * speed}px, ${y * speed}px)`;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
