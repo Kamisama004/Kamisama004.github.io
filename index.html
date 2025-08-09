@@ -14,13 +14,13 @@
 
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #a8e6cf, #7fcdcd, #95d5b2);
+            background: linear-gradient(135deg, #39C5BB, #00D4AA, #7FFFD4, #A7FFEB);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Animated background elements */
+        /* Musical notes animated background */
         body::before {
             content: '';
             position: fixed;
@@ -29,103 +29,119 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(120, 219, 226, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(162, 210, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(57, 197, 187, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(127, 255, 212, 0.3) 0%, transparent 50%);
             z-index: -2;
-            animation: float 6s ease-in-out infinite;
+            animation: melodicFloat 8s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        @keyframes melodicFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(1deg); }
+            50% { transform: translateY(-30px) rotate(-1deg); }
+            75% { transform: translateY(-15px) rotate(2deg); }
         }
 
-        /* Character floating background */
-        .character-float {
+        /* Floating musical notes background */
+        .musical-note {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 24px;
-            color: white;
+            color: rgba(255, 255, 255, 0.4);
             pointer-events: none;
             z-index: -1;
-            opacity: 0.4;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
-        .character-1 {
-            top: 15%;
-            left: 8%;
-            animation: characterFloat1 12s linear infinite;
+        .note-1 { top: 10%; left: 5%; animation: noteFloat1 20s linear infinite; }
+        .note-2 { top: 20%; right: 8%; animation: noteFloat2 25s linear infinite; }
+        .note-3 { top: 30%; left: 15%; animation: noteFloat3 18s linear infinite; }
+        .note-4 { top: 40%; right: 20%; animation: noteFloat4 22s linear infinite; }
+        .note-5 { top: 50%; left: 25%; animation: noteFloat5 16s linear infinite; }
+        .note-6 { top: 60%; right: 30%; animation: noteFloat6 24s linear infinite; }
+        .note-7 { top: 70%; left: 35%; animation: noteFloat7 19s linear infinite; }
+        .note-8 { top: 80%; right: 40%; animation: noteFloat8 21s linear infinite; }
+        .note-9 { top: 15%; left: 50%; animation: noteFloat9 23s linear infinite; }
+        .note-10 { top: 35%; right: 50%; animation: noteFloat10 17s linear infinite; }
+
+        @keyframes noteFloat1 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(50px) rotate(180deg) scale(1.2); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg) scale(0.6); opacity: 0; }
         }
 
-        .character-2 {
-            top: 25%;
-            right: 10%;
-            animation: characterFloat2 15s linear infinite;
+        @keyframes noteFloat2 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(1); opacity: 0; }
+            15% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(-80px) rotate(-180deg) scale(0.7); }
+            85% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-160px) rotate(-360deg) scale(1.3); opacity: 0; }
         }
 
-        .character-3 {
-            top: 60%;
-            left: 15%;
-            animation: characterFloat3 18s linear infinite;
+        @keyframes noteFloat3 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.9); opacity: 0; }
+            20% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(120px) rotate(270deg) scale(1.1); }
+            80% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(240px) rotate(540deg) scale(0.8); opacity: 0; }
         }
 
-        .character-4 {
-            top: 75%;
-            right: 20%;
-            animation: characterFloat4 14s linear infinite;
+        @keyframes noteFloat4 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(1.2); opacity: 0; }
+            12% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(-60px) rotate(-270deg) scale(0.9); }
+            88% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-120px) rotate(-540deg) scale(1.4); opacity: 0; }
         }
 
-        .character-5 {
-            top: 35%;
-            left: 45%;
-            animation: characterFloat5 16s linear infinite;
+        @keyframes noteFloat5 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.6); opacity: 0; }
+            25% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(90px) rotate(450deg) scale(1.5); }
+            75% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(180px) rotate(900deg) scale(0.5); opacity: 0; }
         }
 
-        @keyframes characterFloat1 {
-            0% { transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
-            25% { transform: translateX(50px) translateY(-30px) rotate(90deg) scale(1.1); }
-            50% { transform: translateX(100px) translateY(0) rotate(180deg) scale(0.9); }
-            75% { transform: translateX(50px) translateY(30px) rotate(270deg) scale(1.1); }
-            100% { transform: translateX(0) translateY(0) rotate(360deg) scale(1); }
+        @keyframes noteFloat6 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(1.3); opacity: 0; }
+            8% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(-100px) rotate(-450deg) scale(0.8); }
+            92% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-200px) rotate(-900deg) scale(1.1); opacity: 0; }
         }
 
-        @keyframes characterFloat2 {
-            0% { transform: translateX(0) translateY(0) rotate(0deg) scale(0.8); }
-            33% { transform: translateX(-80px) translateY(40px) rotate(120deg) scale(1.2); }
-            66% { transform: translateX(-40px) translateY(-40px) rotate(240deg) scale(0.9); }
-            100% { transform: translateX(0) translateY(0) rotate(360deg) scale(0.8); }
+        @keyframes noteFloat7 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.7); opacity: 0; }
+            18% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(70px) rotate(315deg) scale(1.3); }
+            82% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(140px) rotate(630deg) scale(0.9); opacity: 0; }
         }
 
-        @keyframes characterFloat3 {
-            0% { transform: translateX(0) translateY(0) rotate(0deg) scale(1.1); }
-            20% { transform: translateX(60px) translateY(-50px) rotate(72deg) scale(0.8); }
-            40% { transform: translateX(120px) translateY(-20px) rotate(144deg) scale(1.2); }
-            60% { transform: translateX(80px) translateY(50px) rotate(216deg) scale(0.9); }
-            80% { transform: translateX(20px) translateY(30px) rotate(288deg) scale(1.1); }
-            100% { transform: translateX(0) translateY(0) rotate(360deg) scale(1.1); }
+        @keyframes noteFloat8 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(1.1); opacity: 0; }
+            14% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(-110px) rotate(-315deg) scale(0.6); }
+            86% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-220px) rotate(-630deg) scale(1.4); opacity: 0; }
         }
 
-        @keyframes characterFloat4 {
-            0% { transform: translateX(0) translateY(0) rotate(0deg) scale(0.9); }
-            50% { transform: translateX(-100px) translateY(-60px) rotate(180deg) scale(1.3); }
-            100% { transform: translateX(0) translateY(0) rotate(360deg) scale(0.9); }
+        @keyframes noteFloat9 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+            22% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(40px) rotate(225deg) scale(1.2); }
+            78% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(80px) rotate(450deg) scale(0.7); opacity: 0; }
         }
 
-        @keyframes characterFloat5 {
-            0% { transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
-            25% { transform: translateX(-70px) translateY(80px) rotate(90deg) scale(0.7); }
-            50% { transform: translateX(70px) translateY(60px) rotate(180deg) scale(1.4); }
-            75% { transform: translateX(40px) translateY(-80px) rotate(270deg) scale(0.8); }
-            100% { transform: translateX(0) translateY(0) rotate(360deg) scale(1); }
+        @keyframes noteFloat10 {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg) scale(1.0); opacity: 0; }
+            16% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(-130px) rotate(-225deg) scale(0.9); }
+            84% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(-260px) rotate(-450deg) scale(1.2); opacity: 0; }
         }
 
         .container {
@@ -157,7 +173,7 @@
             height: 150px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            background: linear-gradient(45deg, #ff9a9e, #a8e6cf, #7fcdcd);
+            background: linear-gradient(45deg, #39C5BB, #00D4AA, #7FFFD4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -249,56 +265,99 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 25px;
         }
 
         .portfolio-item {
             background: rgba(255, 255, 255, 0.3);
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
             border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: transform 0.6s;
+            transform: rotate(45deg) translate(-100%, -100%);
+        }
+
+        .portfolio-item:hover::before {
+            transform: rotate(45deg) translate(100%, 100%);
         }
 
         .portfolio-item:hover {
             background: rgba(255, 255, 255, 0.5);
-            transform: scale(1.03) translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: scale(1.03) translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .portfolio-title {
             font-weight: 600;
             color: #2c5f66;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
         }
 
         .portfolio-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #4a6969;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            margin-bottom: 18px;
+            line-height: 1.5;
         }
 
         .portfolio-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
             justify-content: center;
+            margin-bottom: 15px;
         }
 
         .tech-tag {
-            background: linear-gradient(45deg, #ff9aa2, #ffd3a5);
+            background: linear-gradient(45deg, #39C5BB, #00D4AA);
             color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #7FFFD4, #39C5BB);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Skills section */
@@ -310,7 +369,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(45deg, #7fcdcd, #a8e6cf);
+            background: linear-gradient(45deg, #39C5BB, #00D4AA);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -342,7 +401,7 @@
             background: rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             text-decoration: none;
-            color: #2c5f66;
+            color: #4a4a7a;
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid transparent;
@@ -362,7 +421,7 @@
             border-radius: 25px;
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.3);
-            color: #4a6969;
+            color: #5a5a7a;
             animation: fadeIn 2s ease-out;
         }
 
@@ -370,24 +429,6 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        /* Floating decorations */
-        .decoration {
-            position: fixed;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.6);
-            pointer-events: none;
-            z-index: -1;
-            animation: floatAround 8s linear infinite;
-        }
-
-        @keyframes floatAround {
-            from { transform: translateY(100vh) rotate(0deg); }
-            to { transform: translateY(-100px) rotate(360deg); }
-        }
-
-        .decoration:nth-child(odd) { animation-duration: 10s; }
-        .decoration:nth-child(even) { animation-duration: 12s; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -398,42 +439,39 @@
             }
             .profile-pic { width: 120px; height: 120px; font-size: 50px; }
             .portfolio-grid { grid-template-columns: 1fr; }
-            .character-float { width: 45px; height: 45px; font-size: 18px; }
             .container { padding: 15px; }
+            .musical-note { font-size: 18px; }
         }
 
         @media (max-width: 480px) {
             .name { font-size: 1.8rem; }
             .card, .portfolio-card { padding: 20px; }
             .header { padding: 25px; }
+            .musical-note { font-size: 16px; }
+            .portfolio-item { padding: 20px; }
+            .portfolio-icon { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Character floating backgrounds -->
-    <div class="character-float character-1">🌸</div>
-    <div class="character-float character-2">💫</div>
-    <div class="character-float character-3">🎀</div>
-    <div class="character-float character-4">🌟</div>
-    <div class="character-float character-5">💎</div>
-
-    <!-- Floating decorations -->
-    <div class="decoration" style="left: 10%; animation-delay: 0s;">✧</div>
-    <div class="decoration" style="left: 20%; animation-delay: 1s;">♡</div>
-    <div class="decoration" style="left: 30%; animation-delay: 2s;">✦</div>
-    <div class="decoration" style="left: 40%; animation-delay: 3s;">◇</div>
-    <div class="decoration" style="left: 50%; animation-delay: 4s;">✧</div>
-    <div class="decoration" style="left: 60%; animation-delay: 5s;">♡</div>
-    <div class="decoration" style="left: 70%; animation-delay: 6s;">✦</div>
-    <div class="decoration" style="left: 80%; animation-delay: 7s;">◇</div>
-    <div class="decoration" style="left: 90%; animation-delay: 8s;">✧</div>
+    <!-- Musical notes floating background -->
+    <div class="musical-note note-1">♫</div>
+    <div class="musical-note note-2">♪</div>
+    <div class="musical-note note-3">♩</div>
+    <div class="musical-note note-4">♬</div>
+    <div class="musical-note note-5">♭</div>
+    <div class="musical-note note-6">♯</div>
+    <div class="musical-note note-7">♮</div>
+    <div class="musical-note note-8">𝄞</div>
+    <div class="musical-note note-9">♫</div>
+    <div class="musical-note note-10">♪</div>
 
     <div class="container">
         <!-- Header -->
         <div class="header">
             <div class="profile-pic">👤</div>
             <h1 class="name">ชื่อของคุณ</h1>
-            <p class="title">✧ Web Developer & Designer ✧</p>
+            <p class="title">✧ Web Developer & Music Lover ✧</p>
         </div>
 
         <!-- Content Grid -->
@@ -441,31 +479,34 @@
             <!-- About Me -->
             <div class="card">
                 <h2 class="card-title">
-                    <span>✦</span> เกี่ยวกับฉัน <span>✦</span>
+                    <span>♫</span> เกี่ยวกับฉัน <span>♫</span>
                 </h2>
                 <div class="card-content">
-                    <p>สวัสดีค่ะ! ฉันเป็นคนที่หลงใหลในการสร้างสรรค์เว็บไซต์และการออกแบบ ชอบสีฟ้าใสๆ และธีม kawaii 💙</p>
+                    <p>สวัสดีค่ะ! ฉันเป็นนักพัฒนาเว็บไซต์ที่หลงใหลในการสร้างสรรค์และดนตรี 🎵</p>
                     <br>
-                    <p>มีความสนใจในเทคโนโลยีใหม่ๆ และชอบเรียนรู้สิ่งใหม่อยู่เสมอ</p>
+                    <p>มีความสนใจในเทคโนโลยีใหม่ๆ ชอบการออกแบบ UI/UX และรักเสียงเพลงที่สร้างแรงบันดาลใจ!</p>
                 </div>
             </div>
 
             <!-- Skills -->
             <div class="card">
                 <h2 class="card-title">
-                    <span>✧</span> ทักษะ <span>✧</span>
+                    <span>♪</span> ทักษะ <span>♪</span>
                 </h2>
                 <div class="card-content">
                     <div class="skill-list">
-                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">PHP</span>
                         <span class="skill-tag">MySQL</span>
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Figma</span>
                         <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
             </div>
@@ -473,194 +514,123 @@
             <!-- Hobbies -->
             <div class="card">
                 <h2 class="card-title">
-                    <span>♡</span> งานอดิเรก <span>♡</span>
+                    <span>♬</span> งานอดิเรก <span>♬</span>
                 </h2>
                 <div class="card-content">
-                    <p>✦ ชอบดู Anime และอ่าน Manga</p>
-                    <p>✦ ชอบฟัง Lo-fi และ City Pop</p>
-                    <p>✦ ชอบถ่ายรูป Aesthetic</p>
-                    <p>✦ ชอบเก็บของสะสม Kawaii</p>
-                    <p>✦ ชอบเขียนโค้ดเว็บไซต์สวยๆ</p>
+                    <p>🎵 ฟังเพลงและแต่งเพลง</p>
+                    <p>✨ ชอบดู Anime และอ่าน Manga</p>
+                    <p>🎹 เล่นเปียโนและกีตาร์</p>
+                    <p>📸 ชอบถ่ายรูป Aesthetic</p>
+                    <p>🎨 วาดรูปและสร้างสรรค์ศิลปะดิจิทัล</p>
+                    <p>💻 ชอบเขียนโค้ดและสร้างเว็บไซต์สวยๆ</p>
                 </div>
             </div>
 
             <!-- Contact -->
             <div class="card">
                 <h2 class="card-title">
-                    <span>◇</span> ติดต่อฉัน <span>◇</span>
+                    <span>♩</span> ติดต่อฉัน <span>♩</span>
                 </h2>
                 <div class="card-content">
                     <div class="contact-links">
                         <a href="mailto:your-email@example.com" class="contact-link">
-                            <span>📧</span> your-email@example.com
+                            📧 your-email@example.com
                         </a>
-                        <a href="#" class="contact-link">
-                            <span>💬</span> Line: @yourid
+                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                            🔗 GitHub Profile
                         </a>
-                        <a href="#" class="contact-link">
-                            <span>📱</span> Instagram: @yourusername
+                        <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank">
+                            💼 LinkedIn Profile
                         </a>
-                        <a href="#" class="contact-link">
-                            <span>🐙</span> GitHub: yourusername
+                        <a href="tel:+66123456789" class="contact-link">
+                            📱 +66 12 345 6789
                         </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Portfolio - Full Width -->
-            <div class="portfolio-card">
-                <h2 class="card-title">
-                    <span>🌟</span> ผลงาน Portfolio <span>🌟</span>
-                </h2>
-                <div class="card-content">
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🎨 Kawaii E-commerce</div>
-                            <div class="portfolio-desc">เว็บไซต์ขายของน่ารักสไตล์ญี่ปุ่น พร้อมระบบจัดการสินค้าครบครัน</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">Bootstrap</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">💫 Personal Blog</div>
-                            <div class="portfolio-desc">บล็อกส่วนตัวธีม Aesthetic พร้อมระบบ CMS และ Comment</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">Custom Theme</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🌸 Portfolio Gallery</div>
-                            <div class="portfolio-desc">แกลเลอรี่แสดงผลงานการออกแบบแบบ Interactive</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">CSS Grid</span>
-                                <span class="tech-tag">Framer Motion</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🧸 Task Manager</div>
-                            <div class="portfolio-desc">แอปจัดการงานสไตล์ kawaii พร้อม Notification น่ารัก</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Vuex</span>
-                                <span class="tech-tag">PWA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🎪 Event Landing</div>
-                            <div class="portfolio-desc">หน้าเว็บงานอีเว้นต์แบบ One Page พร้อม Animation สวยงาม</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">GSAP</span>
-                                <span class="tech-tag">Responsive</span>
-                            </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-title">🍡 Restaurant Site</div>
-                            <div class="portfolio-desc">เว็บไซต์ร้านอาหารญี่ปุ่น พร้อมระบบจองโต๊ะและเมนูออนไลน์</div>
-                            <div class="portfolio-tech">
-                                <span class="tech-tag">Laravel</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">Payment API</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>✧ ขอบคุณที่แวะมาดูเว็บไซต์ของฉันนะคะ ✧</p>
-            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
-                Made with ♡ and lots of kawaii vibes
-            </p>
-        </div>
-    </div>
+        <!-- Portfolio Section -->
+        <div class="portfolio-card">
+            <h2 class="card-title">
+                <span>🎼</span> ผลงานของฉัน <span>🎼</span>
+            </h2>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🎵</div>
+                    <div class="portfolio-title">Music Streaming Website</div>
+                    <div class="portfolio-desc">เว็บไซต์สตรีมมิ่งเพลงที่มีการออกแบบ UI สวยงาม พร้อมระบบจัดการเพลเลสต์และการค้นหาที่ทันสมัย</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                    <a href="#" class="portfolio-link">ดูผลงาน</a>
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Stagger card animations
-            const cards = document.querySelectorAll('.card, .portfolio-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.2}s`;
-            });
+                <!-- Project 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🎹</div>
+                    <div class="portfolio-title">Virtual Piano Web App</div>
+                    <div class="portfolio-desc">แอปพลิเคชันเปียโนเสมือนจริงที่สามารถเล่นได้บนเว็บเบราว์เซอร์ พร้อมการบันทึกและเล่นซ้ำเพลง</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Web Audio API</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                    <a href="#" class="portfolio-link">ดูผลงาน</a>
+                </div>
 
-            // Add click effect to skill tags
-            const skillTags = document.querySelectorAll('.skill-tag');
-            skillTags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.05)';
-                    }, 100);
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
-                });
-            });
+                <!-- Project 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🎤</div>
+                    <div class="portfolio-title">Artist Portfolio Website</div>
+                    <div class="portfolio-desc">เว็บไซต์แสดงผลงานสำหรับนักร้องและนักดนตรี พร้อมระบบจัดการคอนเสิร์ตและอัลบั้มเพลง</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <a href="#" class="portfolio-link">ดูผลงาน</a>
+                </div>
 
-            // Portfolio items hover effects
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.03) translateY(-5px)';
-                });
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) translateY(0)';
-                });
-            });
+                <!-- Project 4 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">📱</div>
+                    <div class="portfolio-title">Music Learning Mobile App</div>
+                    <div class="portfolio-desc">แอปพลิเคชันสำหรับเรียนรู้ดนตรี พร้อมบทเรียนออนไลน์และระบบติดตามความก้าวหน้า</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Expo</span>
+                    </div>
+                    <a href="#" class="portfolio-link">ดูผลงาน</a>
+                </div>
 
-            // Parallax effect for characters and decorations
-            document.addEventListener('mousemove', function(e) {
-                const decorations = document.querySelectorAll('.decoration');
-                const characters = document.querySelectorAll('.character-float');
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                decorations.forEach((decoration, index) => {
-                    const speed = (index % 3 + 1) * 0.5;
-                    const transform = decoration.style.transform.split(' translate')[0];
-                    decoration.style.transform = `${transform} translate(${x * speed}px, ${y * speed}px)`;
-                });
+                <!-- Project 5 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🎧</div>
+                    <div class="portfolio-title">Audio Visualizer Website</div>
+                    <div class="portfolio-desc">เว็บไซต์แสดงผลภาพตามจังหวะเพลง พร้อมเอฟเฟกต์สีสันสวยงามที่เปลี่ยนไปตามความถี่เสียง</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">Web Audio API</span>
+                        <span class="tech-tag">Canvas API</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <a href="#" class="portfolio-link">ดูผลงาน</a>
+                </div>
 
-                characters.forEach((character, index) => {
-                    const speed = (index % 2 + 1) * 0.3;
-                    const currentTransform = character.style.transform.split(' translate')[0];
-                    character.style.transform = `${currentTransform} translate(${x * speed * 2}px, ${y * speed * 2}px)`;
-                });
-            });
-
-            // Random character highlight effect
-            setInterval(() => {
-                const characters = document.querySelectorAll('.character-float');
-                const randomChar = characters[Math.floor(Math.random() * characters.length)];
-                
-                const originalOpacity = randomChar.style.opacity;
-                const originalTransform = randomChar.style.transform;
-                
-                randomChar.style.opacity = '0.8';
-                randomChar.style.transform += ' scale(1.3)';
-                
-                setTimeout(() => {
-                    randomChar.style.opacity = originalOpacity || '0.4';
-                    randomChar.style.transform = originalTransform;
-                }, 1000);
-            }, 3000);
-
-            // Smooth scroll for better UX
-            document.documentElement.style.scrollBehavior = 'smooth';
-        });
-    </script>
-</body>
-</html>
+                <!-- Project 6 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🌟</div>
+                    <div class="portfolio-title">Music Festival Website</div>
+                    <div class="portfolio-desc">เว็บไซต์สำหรับเทศกาลดนตรี พร้อมระบบจองตั๋ว ตารางแสดง และแผนที่งาน แบบ Interactive</div>
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class
