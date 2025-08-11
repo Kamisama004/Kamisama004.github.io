@@ -683,7 +683,7 @@
                         </a>
                         <a href="tel:+66123456789" class="contact-item">
                             <span>📱</span>
-                            <span>+66 12 345 6789</span>
+                            <span>091 828 0715</span>
                         </a>
                         <a href="#" class="contact-item">
                             <span>🎨</span>
