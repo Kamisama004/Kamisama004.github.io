@@ -1,0 +1,204 @@
+<?php
+// portfolio_index.php
+// หน้า Portfolio สำหรับสมัครงาน นักศึกษาฝึกงาน / IT / เทคโนโลยีสื่อสาร
+// โทนสี: Hatsune Miku
+
+// ข้อมูลส่วนตัว (แก้ไขได้ตามต้องการ)
+$fullname = 'อภิวิชญ์ สุลำนาจ';
+$title = 'นักศึกษาฝึกงาน / IT Support / เทคโนโลยีสื่อสาร';
+$intro = 'สวัสดีครับ! ผมเป็นนักศึกษาที่สนใจงานด้าน IT และเทคโนโลยีสื่อสาร ชอบการแก้ปัญหา สนับสนุนผู้ใช้งาน และพัฒนาระบบให้เสถียรและใช้งานง่าย';
+$email = 'apivit@example.com';
+$phone = '+66 12 345 6789';
+$github = 'https://github.com/yourusername';
+$linkedin = 'https://linkedin.com/in/yourusername';
+
+// ทักษะ (แก้ไข/เพิ่มได้เป็น array)
+$skills = [
+    'Hardware Troubleshooting',
+    'Software Installation & Updates',
+    'Network Setup (LAN/Wi‑Fi)',
+    'Windows & Linux Basics',
+    'Microsoft Office & Google Workspace',
+    'Helpdesk & Ticketing',
+    'Basic PHP / HTML / CSS',
+    'Customer Support',
+];
+
+// ประสบการณ์ / โปรเจกต์ (ตัวอย่าง)
+$projects = [
+    [ 'title' => 'ปรับปรุงระบบคอมพิวเตอร์สำนักงาน', 'desc' => 'ติดตั้งอัปเดตและแก้ไขปัญหาเครื่องพนักงานกว่า 30 เครื่อง' ],
+    [ 'title' => 'ติดตั้งเครือข่าย Wi‑Fi / LAN', 'desc' => 'วางแผนและตั้งค่าเราเตอร์ สวิตช์ และออกแบบโครงข่ายพื้นฐาน' ],
+    [ 'title' => 'คู่มือใช้งานเบื้องต้น', 'desc' => 'จัดทำคู่มือการใช้งานคอมพิวเตอร์สำหรับพนักงานใหม่และแก้ไขปัญหาทั่วไป' ],
+];
+
+?>
+<!doctype html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo htmlspecialchars($fullname . ' — ' . $title); ?></title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --miku-1: #39C5BB; /* teal */
+            --miku-2: #00D4AA; /* bright teal */
+            --miku-3: #7FFFD4; /* aqua */
+            --miku-4: #A7FFEB; /* pale */
+            --glass: rgba(255,255,255,0.18);
+            --glass-strong: rgba(255,255,255,0.28);
+            --text-dark: #10363a;
+            --muted: #4a6969;
+            --accent: #2c5f66;
+            --radius: 18px;
+        }
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Kanit',sans-serif;background:linear-gradient(135deg,var(--miku-1),var(--miku-2),var(--miku-3));min-height:100vh;color:var(--text-dark);-webkit-font-smoothing:antialiased}
+        /* decorative waves (SVG-ish) */
+        .bg-waves{position:fixed;inset:0;z-index:-3;overflow:hidden}
+        .bg-waves svg{width:120%;height:120%;opacity:.18;filter:blur(16px);transform:translateY(-8%)}
+
+        .container{max-width:1100px;margin:36px auto;padding:28px}
+        .card{background:var(--glass);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,20,24,0.12);padding:22px}
+
+        header{display:flex;gap:20px;align-items:center;padding:18px}
+        .avatar{width:130px;height:130px;border-radius:18px;background:linear-gradient(135deg,var(--miku-1),var(--miku-2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:48px;flex:0 0 130px;border:4px solid rgba(255,255,255,0.35)}
+        .meta{flex:1}
+        .name{font-size:2.1rem;font-weight:700;color:var(--accent);letter-spacing:.4px}
+        .role{margin-top:6px;color:var(--muted);font-weight:500}
+        .intro{margin-top:12px;color:var(--text-dark);line-height:1.6}
+
+        /* grid */
+        .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:18px}
+
+        /* left column */
+        .left .section{margin-bottom:18px}
+        .section-title{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--accent);margin-bottom:12px}
+        .skills{display:flex;flex-wrap:wrap;gap:10px}
+        .skill{background:linear-gradient(90deg,var(--miku-2),var(--miku-3));color:#fff;padding:8px 12px;border-radius:14px;font-weight:600;box-shadow:0 6px 18px rgba(2,20,24,0.08)}
+
+        .projects{display:flex;flex-direction:column;gap:12px}
+        .project{background:rgba(255,255,255,0.06);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+        .project h4{margin-bottom:6px;color:#042b2d}
+        .project p{color:var(--muted);font-size:0.95rem}
+
+        /* right column */
+        .right .card{padding:18px}
+        .contact-list{display:flex;flex-direction:column;gap:10px}
+        .contact-item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.03)}
+        .contact-item a{color:var(--text-dark);text-decoration:none;font-weight:600}
+
+        /* buttons */
+        .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--miku-1),var(--miku-2));color:white;font-weight:700;text-decoration:none;border:0;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+        .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.14);color:var(--text-dark)}
+
+        /* footer */
+        footer{margin-top:20px;text-align:center;color:rgba(16,54,58,0.75);font-size:0.95rem}
+
+        /* responsive */
+        @media (max-width:900px){.grid{grid-template-columns:1fr}.avatar{width:110px;height:110px;font-size:40px}}
+        @media (max-width:480px){.container{padding:14px}.name{font-size:1.6rem}}
+    </style>
+</head>
+<body>
+    <div class="bg-waves">
+        <!-- Decorative SVG waves (subtle) -->
+        <svg viewBox="0 0 1440 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#39C5BB"/>
+                    <stop offset="100%" stop-color="#7FFFD4"/>
+                </linearGradient>
+            </defs>
+            <path fill="url(#g1)" d="M0,320 C240,420 480,220 720,260 C960,300 1200,420 1440,360 L1440,800 L0,800 Z"></path>
+            <path fill="#00D4AA" opacity="0.08" d="M0,420 C300,520 600,320 900,360 C1200,400 1350,500 1440,480 L1440,800 L0,800 Z"></path>
+        </svg>
+    </div>
+
+    <main class="container">
+        <div class="card">
+            <header>
+                <div class="avatar">💻</div>
+                <div class="meta">
+                    <div class="name"><?php echo htmlspecialchars($fullname); ?></div>
+                    <div class="role"><?php echo htmlspecialchars($title); ?></div>
+                    <p class="intro"><?php echo htmlspecialchars($intro); ?></p>
+                </div>
+            </header>
+
+            <div class="grid">
+                <div class="left">
+                    <section class="section card">
+                        <div class="section-title">🛠️ ทักษะหลัก</div>
+                        <div class="skills">
+                            <?php foreach($skills as $s): ?>
+                                <div class="skill"><?php echo htmlspecialchars($s); ?></div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+
+                    <section class="section card">
+                        <div class="section-title">📂 ประสบการณ์ / โปรเจกต์</div>
+                        <div class="projects">
+                            <?php foreach($projects as $p): ?>
+                                <div class="project">
+                                    <h4><?php echo htmlspecialchars($p['title']); ?></h4>
+                                    <p><?php echo htmlspecialchars($p['desc']); ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+
+                    <section class="section card">
+                        <div class="section-title">🎓 การศึกษา</div>
+                        <div style="text-align:center;color:var(--muted);padding:8px 6px">กำลังศึกษาที่มหาวิทยาลัย (สาขาที่เกี่ยวข้อง) — ปรับข้อความได้ตามต้องการ</div>
+                    </section>
+
+                </div>
+
+                <aside class="right">
+                    <div class="card">
+                        <div class="section-title">✉️ ติดต่อ</div>
+                        <div class="contact-list">
+                            <div class="contact-item">📧 <a href="mailto:<?php echo htmlspecialchars($email); ?>"><?php echo htmlspecialchars($email); ?></a></div>
+                            <div class="contact-item">📱 <a href="tel:<?php echo htmlspecialchars($phone); ?>"><?php echo htmlspecialchars($phone); ?></a></div>
+                            <div class="contact-item">💼 <a href="<?php echo htmlspecialchars($linkedin); ?>" target="_blank">โปรไฟล์ LinkedIn</a></div>
+                            <div class="contact-item">🔗 <a href="<?php echo htmlspecialchars($github); ?>" target="_blank">GitHub / โปรเจกต์ตัวอย่าง</a></div>
+                        </div>
+
+                        <div style="margin-top:14px;text-align:center">
+                            <a class="btn" href="#contact-form">ส่งข้อความหา</a>
+                            <a class="btn secondary" style="margin-left:10px" href="#portfolio">ดู Portfolio</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top:14px">
+                        <div class="section-title">📎 ดาวน์โหลด</div>
+                        <div style="display:flex;flex-direction:column;gap:10px">
+                            <a class="contact-item" href="#">📄 ดาวน์โหลด CV (PDF)</a>
+                            <a class="contact-item" href="#">🖼️ ภาพผลงาน (ZIP)</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top:14px">
+                        <div class="section-title">📝 ส่งข้อความ</div>
+                        <form id="contact-form" method="post" action="#" onsubmit="alert('ตัวอย่างฟอร์ม: ปรับเป็นส่งอีเมลหรือเชื่อม API ได้');return false;">
+                            <div style="display:flex;flex-direction:column;gap:8px">
+                                <input type="text" name="name" placeholder="ชื่อ-นามสกุล" style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+                                <input type="email" name="email" placeholder="อีเมลของคุณ" style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+                                <textarea name="message" rows="4" placeholder="ข้อความ" style="padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
+                                <button class="btn" type="submit">ส่งข้อความ</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </aside>
+            </div>
+
+            <footer>
+                <small>ขอบคุณที่เยี่ยมชม โปรไฟล์นี้ออกแบบด้วยโทนสี Hatsune Miku — ปรับแต่งแก้ไขได้ตามต้องการ</small>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>
