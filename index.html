@@ -251,115 +251,6 @@
             text-align: center;
         }
 
-        /* Portfolio section - Full width */
-        .portfolio-card {
-            grid-column: 1 / -1;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .portfolio-item {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: transform 0.6s;
-            transform: rotate(45deg) translate(-100%, -100%);
-        }
-
-        .portfolio-item:hover::before {
-            transform: rotate(45deg) translate(100%, 100%);
-        }
-
-        .portfolio-item:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: scale(1.03) translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .portfolio-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .portfolio-title {
-            font-weight: 600;
-            color: #2c5f66;
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        .portfolio-desc {
-            font-size: 0.95rem;
-            color: #4a6969;
-            margin-bottom: 18px;
-            line-height: 1.5;
-        }
-
-        .portfolio-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-
-        .tech-tag {
-            background: linear-gradient(45deg, #39C5BB, #00D4AA);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio-link {
-            display: inline-block;
-            background: linear-gradient(45deg, #7FFFD4, #39C5BB);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .portfolio-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
         /* Skills section */
         .skill-list {
             display: flex;
@@ -413,6 +304,34 @@
             transform: translateX(5px);
         }
 
+        /* Portfolio links */
+        .portfolio-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .portfolio-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #39C5BB, #00D4AA);
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-link:hover {
+            background: linear-gradient(45deg, #00D4AA, #39C5BB);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -438,18 +357,15 @@
                 gap: 20px;
             }
             .profile-pic { width: 120px; height: 120px; font-size: 50px; }
-            .portfolio-grid { grid-template-columns: 1fr; }
             .container { padding: 15px; }
             .musical-note { font-size: 18px; }
         }
 
         @media (max-width: 480px) {
             .name { font-size: 1.8rem; }
-            .card, .portfolio-card { padding: 20px; }
+            .card { padding: 20px; }
             .header { padding: 25px; }
             .musical-note { font-size: 16px; }
-            .portfolio-item { padding: 20px; }
-            .portfolio-icon { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -526,6 +442,29 @@
                 </div>
             </div>
 
+            <!-- Portfolio -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>🎼</span> Portfolio <span>🎼</span>
+                </h2>
+                <div class="card-content">
+                    <div class="portfolio-links">
+                        <a href="#" class="portfolio-link">
+                            🌐 ผลงานเว็บไซต์
+                        </a>
+                        <a href="#" class="portfolio-link">
+                            🎨 ผลงานการออกแบบ
+                        </a>
+                        <a href="#" class="portfolio-link">
+                            📱 ผลงานแอปพลิเคชัน
+                        </a>
+                        <a href="#" class="portfolio-link">
+                            🎵 ผลงานดนตรี
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Contact -->
             <div class="card">
                 <h2 class="card-title">
@@ -550,87 +489,11 @@
             </div>
         </div>
 
-        <!-- Portfolio Section -->
-        <div class="portfolio-card">
-            <h2 class="card-title">
-                <span>🎼</span> ผลงานของฉัน <span>🎼</span>
-            </h2>
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">🎵</div>
-                    <div class="portfolio-title">Music Streaming Website</div>
-                    <div class="portfolio-desc">เว็บไซต์สตรีมมิ่งเพลงที่มีการออกแบบ UI สวยงาม พร้อมระบบจัดการเพลเลสต์และการค้นหาที่ทันสมัย</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">CSS3</span>
-                    </div>
-                    <a href="#" class="portfolio-link">ดูผลงาน</a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">🎹</div>
-                    <div class="portfolio-title">Virtual Piano Web App</div>
-                    <div class="portfolio-desc">แอปพลิเคชันเปียโนเสมือนจริงที่สามารถเล่นได้บนเว็บเบราว์เซอร์ พร้อมการบันทึกและเล่นซ้ำเพลง</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Web Audio API</span>
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                    </div>
-                    <a href="#" class="portfolio-link">ดูผลงาน</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">🎤</div>
-                    <div class="portfolio-title">Artist Portfolio Website</div>
-                    <div class="portfolio-desc">เว็บไซต์แสดงผลงานสำหรับนักร้องและนักดนตรี พร้อมระบบจัดการคอนเสิร์ตและอัลบั้มเพลง</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Bootstrap</span>
-                    </div>
-                    <a href="#" class="portfolio-link">ดูผลงาน</a>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">📱</div>
-                    <div class="portfolio-title">Music Learning Mobile App</div>
-                    <div class="portfolio-desc">แอปพลิเคชันสำหรับเรียนรู้ดนตรี พร้อมบทเรียนออนไลน์และระบบติดตามความก้าวหน้า</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Redux</span>
-                        <span class="tech-tag">Expo</span>
-                    </div>
-                    <a href="#" class="portfolio-link">ดูผลงาน</a>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">🎧</div>
-                    <div class="portfolio-title">Audio Visualizer Website</div>
-                    <div class="portfolio-desc">เว็บไซต์แสดงผลภาพตามจังหวะเพลง พร้อมเอฟเฟกต์สีสันสวยงามที่เปลี่ยนไปตามความถี่เสียง</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">Three.js</span>
-                        <span class="tech-tag">Web Audio API</span>
-                        <span class="tech-tag">Canvas API</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                    <a href="#" class="portfolio-link">ดูผลงาน</a>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-icon">🌟</div>
-                    <div class="portfolio-title">Music Festival Website</div>
-                    <div class="portfolio-desc">เว็บไซต์สำหรับเทศกาลดนตรี พร้อมระบบจองตั๋ว ตารางแสดง และแผนที่งาน แบบ Interactive</div>
-                    <div class="portfolio-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class
+        <!-- Footer -->
+        <div class="footer">
+            <p>✧ ขอบคุณที่เข้ามาเยี่ยมชมโปรไฟล์ของฉัน ✧</p>
+            <p>🎵 ใส่ใจในทุกรายละเอียด เพื่อสร้างสรรค์สิ่งสวยงาม 🎵</p>
+        </div>
+    </div>
+</body>
+</html>
